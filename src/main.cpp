@@ -56,7 +56,7 @@ int main()
         in_device_ind,
         device_info);
     
-    err = Pa_OpenStream(
+    /*err = Pa_OpenStream(
         &stream,
         input_stream_params,
         NULL,
@@ -66,7 +66,7 @@ int main()
         pa_callbacks::recordCallback,
         &audio_buffer
     );
-    if(err != paNoError) goto error;
+    if(err != paNoError) goto error;*/
 
 
     Pa_Terminate();
