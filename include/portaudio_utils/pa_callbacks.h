@@ -1,6 +1,7 @@
 #pragma once
 
 #include <portaudio.h>
+#include "pa_defines.h"
 
 namespace pa_callbacks
 {
