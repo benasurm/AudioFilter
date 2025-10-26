@@ -1,0 +1,110 @@
+    /*std::string command = "";
+    
+    int supported_index, in_device_ind;
+    const PaDeviceInfo *device_info;
+
+    PaStreamParameters input_stream_params;
+    PaStream* stream;
+
+    pa_util_classes::AudioContext audio_buffer(SAMPLE_RATE, 
+        2, 10);
+
+    std::vector<pa_utils::AudioDeviceInfo> supported = {};
+    
+    PaError err = Pa_Initialize();
+    if(err != paNoError)
+    {
+        fprintf(stderr, "** PortAudio ERROR: Pa_Initialize returned 0x%x\n", err);
+        goto error;
+    }
+
+    // A hack, should not be present in the "production" versions
+    #ifdef WIN32
+        system("CLS");
+    #else
+        system("clear");
+    #endif
+
+    PaHostApiTypeId pref_api = pa_utils::getPreferredApiType();
+    supported = pa_utils::getSupportedInputDevices(
+        pref_api,
+        48000.0,
+        paFloat32,
+        2
+    );
+
+    if (supported.empty()) 
+    {
+        fprintf(stderr, "** PortAudio Warning: no supported input devices!");
+        goto error;
+    }
+
+    supported_index = pa_utils::selectInputDevice(supported);
+    in_device_ind = supported[supported_index].index;
+    device_info = Pa_GetDeviceInfo(in_device_ind);
+    printf("Selected device: %s\n", device_info->name);
+
+    input_stream_params = pa_utils::getDefaultInputParams(
+        in_device_ind,
+        device_info,
+        paFloat32
+    );
+
+    audio_buffer.openFile("audio_data.raw");
+
+    printf("** Opened stream\n");
+    err = Pa_OpenStream(
+        &stream,
+        (const PaStreamParameters*)&input_stream_params,
+        NULL,
+        device_info->defaultSampleRate,
+        paFramesPerBufferUnspecified,
+        paClipOff,
+        pa_callbacks::recordCallback,
+        &audio_buffer
+    );
+    if(err != paNoError) goto error;
+
+    printf("** Start stream\n");
+    err = Pa_StartStream(stream);
+    if( err != paNoError ) goto error;
+
+    printf("** To end the stream, type \'stop\'\n");
+
+    while(true)
+    {
+        std::getline(std::cin, command);
+        if(command == "stop") break;
+        
+        #if defined(_WIN32)
+            Sleep(50);
+        #else
+            sleep(50 / 1000.0)
+        #endif
+    }
+
+    printf("Close stream\n");
+    err = Pa_CloseStream( stream );
+    if( err != paNoError ) goto error;
+
+    audio_buffer.closeFile();
+
+    Pa_Terminate();
+    return 0;
+
+    error:
+        Pa_Terminate();
+        fprintf(stderr, "PortAudio Error code: 0x%x\n", err);
+        fprintf(stderr, "PortAudio Error text: %s\n", Pa_GetErrorText(err));
+        return err;*/
+
+
+    /*#include <portaudio.h>
+#include <cstdlib>
+#include <cstdio>
+#include <algorithm>
+#include <SFML/Graphics.hpp>
+
+#include "../include/portaudio_utils/pa_utils.h"
+#include "../include/portaudio_utils/pa_callbacks.h"
+#include "../include/audio_buffer.h"*/
